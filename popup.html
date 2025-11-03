@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Per‑Domain CSS</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 12px; width: 360px; }
+      header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+      #host { font-weight: 600; font-size: 14px; }
+      textarea { width: 100%; height: 200px; box-sizing: border-box; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
+      .row { display: flex; align-items: center; gap: 8px; margin: 8px 0; }
+      button { padding: 6px 10px; }
+      .grow { flex: 1; }
+      .muted { color: #666; font-size: 12px; }
+      .error { color: #b00020; font-size: 12px; }
+      label.switch { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; }
+      input[type="checkbox"] { transform: scale(1.2); }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div id="host">…</div>
+      <label class="switch">
+        <input id="enabled" type="checkbox">
+        Enabled
+      </label>
+    </header>
+    <div class="row">
+      <label class="switch"><input id="important" type="checkbox" checked> Add <code>!important</code></label>
+      <div class="grow"></div>
+    </div>
+    <textarea id="css" placeholder="Write CSS for this exact domain, e.g.:
+:root { --my-bg: #111; }
+body { background: var(--my-bg); color: #eee; }
+* { font-family: Inter, Arial, sans-serif; }"></textarea>
+    <div class="row">
+      <button id="preview">Preview</button>
+      <div class="grow"></div>
+      <button id="save">Save</button>
+    </div>
+    <div id="status" class="muted"></div>
+    <div id="error" class="error"></div>
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>
